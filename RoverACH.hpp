@@ -17,9 +17,11 @@
 #include <inttypes.h>
 #include "Ach.hpp"
 
-class Rover_ACH{
+class RoverACH{
 public:
-	rover_ach_opts();
+	//rover_ach_opts();
+
+	RoverACH();
 
 	int publish();
 	int subscribe();
@@ -36,7 +38,7 @@ public:
 
 	FILE *fin;
 	FILE *fout;
-}
+};
 
 /* ex: set shiftwidth=4 tabstop=4 expandtab: */
 /* Local Variables:                          */

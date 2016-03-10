@@ -2,9 +2,10 @@
  *
  */
 
-#include "Rover_ACH.hpp"
+#include "RoverACH.hpp"
+#include <stdio.h>
 
-Rover_ACH::Rover_ACH(){
+RoverACH::RoverACH(){
 	opt_msg_size = 256;
 	opt_msg_cnt = 10;
 	opt_chan_name = NULL;
@@ -14,8 +15,8 @@ Rover_ACH::Rover_ACH(){
 	fout = NULL;
 }
 
-int Rover_ACH::publish() {
-	chan = this.chan;
+int RoverACH::publish() {
+	chan = this->chan;
     int r=0;
     while(1) {
         char *fr;
@@ -32,8 +33,8 @@ int Rover_ACH::publish() {
 }
 
 
-int Rover_ACH::subscribe() {
-	chan = this.chan;
+int RoverACH::subscribe() {
+	chan = this->chan;
     ach_status_t r;
     int t0 = 1;
     std::vector<uint8_t> buf;
