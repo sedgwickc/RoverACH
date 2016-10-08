@@ -14,9 +14,10 @@ RoverACH::RoverACH(){
 	opt_sub = 0;
 	fin = NULL;
 	fout = NULL;
+	chnl = new ach::Channel();
 }
 
-int RoverACH::publish() {
+int RoverACH::publish(int type) {
     int r=0;
     //char *fr;
     /* get size */
@@ -24,7 +25,11 @@ int RoverACH::publish() {
     //if( !fr ) break;
     //assert( pbuffer == fr );
     /* put data */
-    r = chnl->put( pbuffer, strlen(pbuffer) );
+    if( type == TYPE_NAV_DATA ){
+        r = chnl->put( &curr_nav_data, NAVDATA_SIZE);
+    } else if( type == TYPE_STRING ){
+        r = chnl->put( pbuffer, strlen(pbuffer) );
+    }
     return r;
 }
 
