@@ -53,7 +53,7 @@ public:
 
 	RoverACH();
 
-	int publish(int data_type);
+	int publish();
 	int subscribe();
 
 	char pbuffer[PBUFF_SIZE];
@@ -61,6 +61,7 @@ public:
 	ach::Channel* chnl;
 
 	/* options */
+	int opt_buffer_type;
 	int opt_msg_size;
 	int opt_msg_cnt;
 	char opt_chan_name[NAME_SIZE];
