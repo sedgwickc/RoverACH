@@ -1,5 +1,10 @@
 /*
  *
+ * ver  auth        date       comment
+ * ---------------------------------------------------------------------------
+ * 100  sedgwickc              Initial creation.
+ * 101  sedgwickc   08nov2016  Add buffer type defines. Add curr_nav_data 
+ *                             attribute.
  */
 
 #ifndef _ROVERACH_H_
@@ -55,6 +60,7 @@ public:
 
 	int publish();
 	int subscribe();
+    int getFrame();
 
 	char pbuffer[PBUFF_SIZE];
 	Nav_Data curr_nav_data;
